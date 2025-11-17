@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiodiversityDB - Species</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🌿 BiodiversityDB</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/species.html" class="active">Species</a></li>
+                <li><a href="/observation.html">Observations</a></li>
+                <li><a href="/location.html">Locations</a></li>
+                <li><a href="/observers.html">Observers</a></li>
+                <li><a href="/action.html">Actions</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Species Management</h2>
+                <button class="btn btn-success" onclick="showAddModal()">+ Add New Species</button>
+            </div>
+
+            <!-- Species Table -->
+            <div class="card">
+                <div class="table-container">
+                    <table id="speciesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Common Name</th>
+                                <th>Scientific Name</th>
+                                <th>Status</th>
+                                <th>Habitat</th>
+                                <th>Diet</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="7" class="loading">Loading species...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="speciesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Add New Species</h3>
+            <form id="speciesForm" onsubmit="saveSpecies(event)">
+                <div class="form-group">
+                    <label>Species ID:</label>
+                    <input type="number" id="speciesId" required>
+                </div>
+                <div class="form-group">
+                    <label>Common Name:</label>
+                    <input type="text" id="commonName" required>
+                </div>
+                <div class="form-group">
+                    <label>Scientific Name:</label>
+                    <input type="text" id="scientificName" required>
+                </div>
+                <div class="form-group">
+                    <label>Conservation Status:</label>
+                    <select id="conservationStatus" required>
+                        <option value="">Select Status</option>
+                        <option value="EX">EX - Extinct</option>
+                        <option value="EW">EW - Extinct in Wild</option>
+                        <option value="CR">CR - Critically Endangered</option>
+                        <option value="EN">EN - Endangered</option>
+                        <option value="VU">VU - Vulnerable</option>
+                        <option value="NT">NT - Near Threatened</option>
+                        <option value="LC">LC - Least Concern</option>
+                        <option value="DD">DD - Data Deficient</option>
+                        <option value="NE">NE - Not Evaluated</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Habitat Type:</label>
+                    <input type="text" id="habitatType" required placeholder="e.g., Forest, Marine, Wetlands">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save Species</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/species.js"></script>
+</body>
+</html>

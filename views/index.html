@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiodiversityDB - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🌿 BiodiversityDB</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="active">Dashboard</a></li>
+                <li><a href="/species.html">Species</a></li>
+                <li><a href="/observation.html">Observations</a></li>
+                <li><a href="/location.html">Locations</a></li>
+                <li><a href="/observers.html">Observers</a></li>
+                <li><a href="/action.html">Actions</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2>Dashboard Overview</h2>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🐾</div>
+                    <div class="stat-info">
+                        <h3 id="speciesCount">-</h3>
+                        <p>Total Species</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👁️</div>
+                    <div class="stat-info">
+                        <h3 id="observationCount">-</h3>
+                        <p>Total Observations</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📍</div>
+                    <div class="stat-info">
+                        <h3 id="locationCount">-</h3>
+                        <p>Locations Monitored</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <h3 id="actionCount">-</h3>
+                        <p>Conservation Actions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conservation Status Chart -->
+            <div class="card">
+                <h3>Species by Conservation Status</h3>
+                <div id="statusChart" class="chart-container">
+                    <p class="loading">Loading data...</p>
+                </div>
+            </div>
+
+            <!-- Recent Observations -->
+            <div class="card">
+                <h3>Recent Observations</h3>
+                <div class="table-container">
+                    <table id="recentObservationsTable">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Species</th>
+                                <th>Location</th>
+                                <th>Observer</th>
+                                <th>Count</th>
+                                <th>Behavior</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="loading">Loading observations...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

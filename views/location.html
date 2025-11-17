@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiodiversityDB - Locations</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🌿 BiodiversityDB</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/species.html">Species</a></li>
+                <li><a href="/observation.html">Observations</a></li>
+                <li><a href="/location.html" class="active">Locations</a></li>
+                <li><a href="/observers.html">Observers</a></li>
+                <li><a href="/action.html">Actions</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Monitoring Locations</h2>
+                <button class="btn btn-success" onclick="showAddModal()">+ Add New Location</button>
+            </div>
+
+            <!-- Locations Table -->
+            <div class="card">
+                <div class="table-container">
+                    <table id="locationsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Country</th>
+                                <th>Region</th>
+                                <th>Coordinates</th>
+                                <th>Ecosystem Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="loading">Loading locations...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Add New Location</h3>
+            <form id="locationForm" onsubmit="saveLocation(event)">
+                <div class="form-group">
+                    <label>Location ID:</label>
+                    <input type="number" id="locationId" required>
+                </div>
+                <div class="form-group">
+                    <label>Country:</label>
+                    <input type="text" id="country" required>
+                </div>
+                <div class="form-group">
+                    <label>Region:</label>
+                    <input type="text" id="region" required>
+                </div>
+                <div class="form-group">
+                    <label>Latitude:</label>
+                    <input type="number" step="0.000001" id="latitude" required placeholder="e.g., 22.3345">
+                </div>
+                <div class="form-group">
+                    <label>Longitude:</label>
+                    <input type="number" step="0.000001" id="longitude" required placeholder="e.g., 80.6115">
+                </div>
+                <div class="form-group">
+                    <label>Ecosystem Type:</label>
+                    <input type="text" id="ecosystemType" required placeholder="e.g., Forest, Marine">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save Location</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/location.js"></script>
+</body>
+</html>
